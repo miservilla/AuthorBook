@@ -5,12 +5,14 @@
  */
 public class Author {
 
-    private String lastName;
+    static private String lastName;
     private String firstName;
     private int birth;
     private int death;
 
     public Author(String lastName, String firstName){
+        Author.lastName = lastName;
+        this.firstName = firstName;
 
     }
 
@@ -43,14 +45,23 @@ public class Author {
     }
 
 //    public String inforString(){
-////        String authorsName =
+//        String authorsName =
 //    }
 
 
     public static void main(String[] args){
-        Author author = new Author("joe", "big");
-        String name = author.toString();
-        System.out.println(name);
+        Author author1 = new Author("joe", "big");
+        String name1 = author1.toString();
+        System.out.println(name1);
+
+        Author author2 = new Author("jane", "little");
+        String name2 = author2.toString();
+        System.out.println(name2);
+
+        author1 = new Author("joe", "big");
+        name1 = author1.toString();
+        System.out.println(name1);
+
     }
 
 }
