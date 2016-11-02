@@ -1,3 +1,4 @@
+
 /**
  * @version date 2016 - 11 - 01
  * @author Michael Servilla
@@ -30,21 +31,28 @@ public class Author {
     }
 
     public boolean isSame(Author other){
-        if (other.equals(Author));
+        boolean sameName = false;
+        if (lastName.equals(other) && firstName.equals(other)){
+            sameName = true;
+        }
+        return sameName;
     }
 
     public String toString(){
-
+        return lastName + ", " + firstName;
     }
 
-    public String inforString(){
-
-    }
+//    public String inforString(){
+////        String authorsName =
+//    }
 
 
     public static void main(String[] args){
-
+        Author author = new Author("joe", "big");
+        String name = author.toString();
+        System.out.println(name);
     }
+
 }
 
 
