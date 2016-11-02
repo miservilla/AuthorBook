@@ -3,15 +3,16 @@
  * @version date 2016 - 11 - 01
  * @author Michael Servilla
  */
+// Add helper method to check validity of year.
 public class Author {
 
-    static private String lastName;
+    private String lastName;
     private String firstName;
     private int birth;
     private int death;
 
     public Author(String lastName, String firstName){
-        Author.lastName = lastName;
+        this.lastName = lastName;
         this.firstName = firstName;
 
     }
@@ -34,7 +35,7 @@ public class Author {
 
     public boolean isSame(Author other){
         boolean sameName = false;
-        if (lastName.equals(other) && firstName.equals(other)){
+        if (this.lastName.equals(other) && this.firstName.equals(other)){
             sameName = true;
         }
         return sameName;
@@ -44,8 +45,9 @@ public class Author {
         return lastName + ", " + firstName;
     }
 
-//    public String inforString(){
-//        String authorsName =
+//    public String infoString(){
+//        String bookAuthor = lastName + "' " + firstName;
+//        if dates were set, if woul != -4000 or the CONSTANT!
 //    }
 
 
