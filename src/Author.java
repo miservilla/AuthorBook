@@ -84,7 +84,6 @@ public class Author {
         author1 = new Author("joe", "big");
         name1 = author1.toString();
         System.out.println(name1);
-
     }
 
 }
