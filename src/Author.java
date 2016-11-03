@@ -4,17 +4,38 @@
  * @author Michael Servilla
  */
 // Add helper method to check validity of year.
+
+
 public class Author {
 
     private String lastName;
     private String firstName;
     private int birth;
     private int death;
+    private int year = AuthorBookConstants.UNKNOWN_YEAR;
 
     public Author(String lastName, String firstName){
         this.lastName = lastName;
         this.firstName = firstName;
 
+
+
+    }
+    public String getLastName(){
+        return this.lastName;
+    }
+
+    public String getFirstName(){
+        return this.firstName;
+    }
+
+    private boolean isEqual(Author a){
+        boolean equals = false;
+        if (this.lastName.equals(a.getLastName()) &&
+                this.firstName.equals((a.getFirstName()))){
+            equals = true;
+        }
+        return equals;
     }
 
     public int getBirth() {
@@ -33,9 +54,9 @@ public class Author {
         this.death = death;
     }
 
-    public boolean isSame(Author other){
+    public boolean isSame(Author a){
         boolean sameName = false;
-        if (this.lastName.equals(other) && this.firstName.equals(other)){
+        if (this.lastName.equals(a) && this.firstName.equals(a)){
             sameName = true;
         }
         return sameName;
