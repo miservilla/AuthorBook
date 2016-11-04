@@ -3,8 +3,6 @@
  * @version date 2016 - 11 - 01
  * @author Michael Servilla
  */
-// Add helper method to check validity of year.
-
 
 public class Author {
 
@@ -14,28 +12,50 @@ public class Author {
     private int death;
     private int year = AuthorBookConstants.UNKNOWN_YEAR;
 
+//    /**
+//     * Helper method to test if author's first and last name is equal to "this.
+//     * instance" and the parameter author.
+//     * @param a
+//     * @return true if lastName and firstName are equal, false if not equal.
+//     */
+//    private boolean isEqual(Author a){
+//        boolean equals = false;
+//        if (this.lastName.equals(a.getLastName()) &&
+//                this.firstName.equals((a.getFirstName()))){
+//            equals = true;
+//        }
+//        return equals;
+//    }
+
+    /**
+     * Helper method to check if year is valid (-2000 < year <2021).
+     * @param year
+     * @return true if year is valid, false if not.
+     */
+    private boolean validYear(int year){
+        boolean validYear = false;
+        if (year > -2000 && year < 2021){
+            validYear = true;
+        }
+        return validYear;
+    }
+
+    /**
+     * Constructor to create new Author with lastName, firstName.
+     * @param lastName
+     * @param firstName
+     */
     public Author(String lastName, String firstName){
         this.lastName = lastName;
         this.firstName = firstName;
-
-
-
     }
+
     public String getLastName(){
         return this.lastName;
     }
 
     public String getFirstName(){
         return this.firstName;
-    }
-
-    private boolean isEqual(Author a){
-        boolean equals = false;
-        if (this.lastName.equals(a.getLastName()) &&
-                this.firstName.equals((a.getFirstName()))){
-            equals = true;
-        }
-        return equals;
     }
 
     public int getBirth() {
@@ -53,13 +73,19 @@ public class Author {
     public void setYears(int birth, int death) {
         this.death = death;
     }
-
+    /**
+     * Method to test if author's first and last name is equal to "this.
+     * instance" and the parameter author.
+     * @param a
+     * @return true if lastName and firstName are equal, false if not equal.
+     */
     public boolean isSame(Author a){
-        boolean sameName = false;
-        if (this.lastName.equals(a) && this.firstName.equals(a)){
-            sameName = true;
+        boolean equals = false;
+        if (this.lastName.equals(a.getLastName()) &&
+                this.firstName.equals((a.getFirstName()))){
+            equals = true;
         }
-        return sameName;
+        return equals;
     }
 
     public String toString(){
@@ -81,9 +107,9 @@ public class Author {
         String name2 = author2.toString();
         System.out.println(name2);
 
-        author1 = new Author("joe", "big");
-        name1 = author1.toString();
-        System.out.println(name1);
+        Author author3 = new Author("Pearl", "Fancy");
+        String name3 = author3.toString();
+        System.out.println(name3);
     }
 
 }
