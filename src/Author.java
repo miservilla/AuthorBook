@@ -8,8 +8,8 @@ public class Author {
 
     private String lastName;
     private String firstName;
-    private int birth;
-    private int death;
+    private int birth = AuthorBookConstants.UNKNOWN_YEAR;
+    private int death = AuthorBookConstants.UNKNOWN_YEAR;
     private int year = AuthorBookConstants.UNKNOWN_YEAR;
 
 //    /**
@@ -71,6 +71,7 @@ public class Author {
     }
 
     public void setYears(int birth, int death) {
+        this.birth = birth;
         this.death = death;
     }
     /**
@@ -88,14 +89,26 @@ public class Author {
         return equals;
     }
 
+    /**
+     * Method to return string literal representation of chosen object.
+     * @return string literal of instance lastName, firstName
+     */
     public String toString(){
-        return lastName + ", " + firstName;
+        return this.lastName.toString() + ", " + this.firstName.toString();
     }
 
-//    public String infoString(){
-//        String bookAuthor = lastName + "' " + firstName;
-//        if dates were set, if woul != -4000 or the CONSTANT!
-//    }
+    public String infoString(){
+        if (this.birth != AuthorBookConstants.UNKNOWN_YEAR &&
+                 this.death != AuthorBookConstants.UNKNOWN_YEAR){
+            return this.lastName.toString() + ", " + this.firstName.toString()
+                    + " (" + this.birth + "-" + this.death + ")";
+        } else if (this.birth != AuthorBookConstants.UNKNOWN_YEAR){
+            return this.lastName.toString() + ", " + this.firstName.toString()
+                    + " (" + this.birth + ")";
+        } else {
+            return toString();
+        }
+    }
 
 
     public static void main(String[] args){
@@ -110,6 +123,8 @@ public class Author {
         Author author3 = new Author("Pearl", "Fancy");
         String name3 = author3.toString();
         System.out.println(name3);
+
+
     }
 
 }

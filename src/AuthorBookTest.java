@@ -69,9 +69,9 @@ public class AuthorBookTest {
 //        score += tScore; tScore = 0;
 //
 //
-//        a4.setYears( 1938 );
-//        a2.setYears( 1970 );
-//        a1.setYears( 1930, 2009 );
+        a4.setYears( 1938 );
+        a2.setYears( 1970 );
+        a1.setYears( 1930, 2009 );
 //        if( 2009 == a1.getDeath() ) { tScore++; }
 //        if( 1930 == a1.getBirth() ) { tScore++; }
 //        if( 1970 == a2.getBirth() ) { tScore++; }
@@ -144,6 +144,7 @@ public class AuthorBookTest {
         if( !a3.isSame(ax2) ) { tScore++; }
         if( !a3.isSame(ax3) ) { tScore++; }
         if( !a3.isSame(ax5) ) { tScore++; }
+        System.out.println(a2.infoString());
         System.out.println( "  - author comparison tests:          " + tScore + "/4" );
         score += tScore; tScore = 0;
 
