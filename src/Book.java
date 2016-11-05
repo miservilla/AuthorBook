@@ -56,16 +56,16 @@ public class Book {
         this.author = author;
     }
 
-    /**
-     * Returns true if this book has the same Author as the book that was passed in in the
-     arguments, otherwise return false. (Hint: You already wrote a method to see if authors
-     are the same.)
-     * @param other
-     * @return
-     */
-    public boolean sameAuthor(Book other){
-        Author.isSame(other);
-    }
+//    /**
+//     * Returns true if this book has the same Author as the book that was passed in in the
+//     arguments, otherwise return false. (Hint: You already wrote a method to see if authors
+//     are the same.)
+//     * @param other
+//     * @return
+//     */
+//    public boolean sameAuthor(Book other){
+//        Author.isSame(other);
+//    }
 
     /**
      * Returns true if this book is equal to the other book. We will say that two Book objects
@@ -93,7 +93,16 @@ public class Book {
      * @return
      */
     public String toString(){
-
+        if (this.author != AuthorBookConstants.UNKNOWN_AUTHOR &&
+                this.pubYear != AuthorBookConstants.UNKNOWN_YEAR){
+            return this.title.toString() + " (" + this.pubYear + "). " +
+                    this.author.getLastName().toString() + ", " +
+                    this.author.getFirstName().toString() + ".";
+        } else if (this.author != AuthorBookConstants.UNKNOWN_AUTHOR){
+            return this.title.toString() + ". " +
+                    this.author.getLastName().toString() + ", " +
+                    this.author.getFirstName().toString() + ".";
+        } else return this.title.toString() + ".";
     }
 //
 //    public static void main(String[] args){

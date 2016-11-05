@@ -36,8 +36,9 @@ public class Author {
         boolean validYear = false;
         if (year > -2000 && year < 2021){
             validYear = true;
+        } else {
+            System.out.println("You have attempted an invalid YEAR!");
         }
-        System.out.println("You have attempted an invalid YEAR!");
         return validYear;
     }
 
@@ -101,6 +102,15 @@ public class Author {
         return this.lastName.toString() + ", " + this.firstName.toString();
     }
 
+    /**
+     * Should return (not print) a string for the author, of the form:
+     Heaney, Seamus
+     If the year of birth (but not death) is set it should return:
+     Heaney, Seamus (b. 1939)
+     If both the years of birth and death have been set, it should return:
+     Heaney, Seamus (1939-2013)
+     * @return
+     */
     public String infoString(){
         if (this.birth != AuthorBookConstants.UNKNOWN_YEAR &&
                  this.death != AuthorBookConstants.UNKNOWN_YEAR){
@@ -110,26 +120,26 @@ public class Author {
             return this.lastName.toString() + ", " + this.firstName.toString()
                     + " (" + this.birth + ")";
         } else {
-            return toString();
+            return this.lastName.toString() + ", " +
+                    this.firstName.toString();
         }
     }
 
-
-    public static void main(String[] args){
-        Author author1 = new Author("joe", "big");
-        String name1 = author1.toString();
-        System.out.println(name1);
-
-        Author author2 = new Author("jane", "little");
-        String name2 = author2.toString();
-        System.out.println(name2);
-
-        Author author3 = new Author("Pearl", "Fancy");
-        String name3 = author3.toString();
-        System.out.println(name3);
-
-
-    }
+//    public static void main(String[] args){
+//        Author author1 = new Author("joe", "big");
+//        String name1 = author1.toString();
+//        System.out.println(name1);
+//
+//        Author author2 = new Author("jane", "little");
+//        String name2 = author2.toString();
+//        System.out.println(name2);
+//
+//        Author author3 = new Author("Pearl", "Fancy");
+//        String name3 = author3.toString();
+//        System.out.println(name3);
+//
+//
+//    }
 
 }
 
