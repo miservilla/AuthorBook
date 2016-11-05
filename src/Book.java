@@ -27,8 +27,9 @@ public class Book {
         return pubYear;
     }
 
-    public void setPubYear(int date) {
-        this.pubYear = pubYear;
+    public void setPubYear(int year) {
+        Author.validYear(year);
+        this.pubYear = year;
     }
 
     public String getTitle() {
@@ -39,11 +40,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getIsbn() {
+    public String getISBN() {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
+    public void setISBN(String isbn) {
         this.isbn = isbn;
     }
 
@@ -55,9 +56,49 @@ public class Book {
         this.author = author;
     }
 
-    public static void main(String[] args){
-        System.out.println();
+    /**
+     * Returns true if this book has the same Author as the book that was passed in in the
+     arguments, otherwise return false. (Hint: You already wrote a method to see if authors
+     are the same.)
+     * @param other
+     * @return
+     */
+    public boolean sameAuthor(Book other){
+        Author.isSame(other);
+    }
+
+    /**
+     * Returns true if this book is equal to the other book. We will say that two Book objects
+     are equal if their ISBNs are equal.
+     * @param other
+     * @return
+     */
+    public boolean equals(Book other){
+        boolean equals = false;
+        if (this.isbn.equals(other.getISBN())){
+            equals = true;
+        }
+        return equals;
+    }
+
+    /**
+     * Should return (not print!) a String representation of this Book.
+     If only a title has been set, return a string of the form:
+     The Arcades Project.
+     If a title and author are set:
+     The Arcades Project. Benjamin, Walter.
+     If a title and author and year have been set:
+     The Arcades Project (2002). Benjamin, Walter.
+     Note the punctuation in the examples above, it must be exact to pass the tests
+     * @return
+     */
+    public String toString(){
 
     }
+//
+//    public static void main(String[] args){
+//        System.out.println();
+//
+//    }
 
 }

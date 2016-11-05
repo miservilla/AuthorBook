@@ -32,11 +32,12 @@ public class Author {
      * @param year
      * @return true if year is valid, false if not.
      */
-    private boolean validYear(int year){
+    public static boolean validYear(int year){//Does it matter if this is made static?
         boolean validYear = false;
         if (year > -2000 && year < 2021){
             validYear = true;
         }
+        System.out.println("You have attempted an invalid YEAR!");
         return validYear;
     }
 
@@ -67,11 +68,14 @@ public class Author {
     }
 
     public void setYears(int birth) {
+        validYear(birth);
         this.birth = birth;
     }
 
     public void setYears(int birth, int death) {
+        validYear(birth);
         this.birth = birth;
+        validYear(death);
         this.death = death;
     }
     /**
