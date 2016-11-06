@@ -120,15 +120,11 @@ public class Author {
     public String infoString(){
         if (this.birth != AuthorBookConstants.UNKNOWN_YEAR &&
                  this.death != AuthorBookConstants.UNKNOWN_YEAR){
-            System.out.println(this.lastName.toString() + ", " + this.firstName.toString()
-                    + " (" + this.birth + "-" + this.death + ")");
             return this.lastName.toString() + ", " + this.firstName.toString()
                     + " (" + this.birth + "-" + this.death + ")";
         } else if (this.birth != AuthorBookConstants.UNKNOWN_YEAR){
-            System.out.println(this.lastName.toString() + ", " + this.firstName.toString()
-                    + " (b. " + this.birth + ")");
             return this.lastName.toString() + ", " + this.firstName.toString()
-                    + " (b." + this.birth + ")";
+                    + " (b. " + this.birth + ")";
         } else {
             return this.lastName.toString() + ", " +
                     this.firstName.toString();

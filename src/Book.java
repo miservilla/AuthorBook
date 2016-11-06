@@ -25,13 +25,16 @@ public class Book {
     }
 
     public int getPubYear() {
-        Author.validYear(this.pubYear);
         return pubYear;
     }
 
 
     public void setPubYear(int year) {
-        this.pubYear = year;
+        if (year > -2000 && year < 2021){
+            this.pubYear = year;
+        } else {
+            System.out.println("You have attempted an invalid YEAR!");
+        }
     }
 
     public String getTitle() {
@@ -39,7 +42,11 @@ public class Book {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if (title != ""){
+            this.title = title;
+        }else {
+            System.out.println("Invalid title!");
+        }
     }
 
     public String getISBN() {
@@ -47,7 +54,11 @@ public class Book {
     }
 
     public void setISBN(String isbn) {
-        this.isbn = isbn;
+        if (isbn.length()== 10 || isbn.length()== 13){
+            this.isbn = isbn;
+        }else {
+            System.out.println("Invalid ISBN!");
+        }
     }
 
     public Author getAuthor() {
