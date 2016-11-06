@@ -69,15 +69,21 @@ public class Author {
     }
 
     public void setYears(int birth) {
-        validYear(birth);
-        this.birth = birth;
+        if (birth > -2000 && birth < 2012){
+            this.birth = birth;
+        } else {
+            System.out.println("You have attempted an invalid YEAR!");
+        }
     }
 
     public void setYears(int birth, int death) {
-        validYear(birth);
-        this.birth = birth;
-        validYear(death);
-        this.death = death;
+        if (birth < death && birth > -2000 && birth < 2021 && death > -2000 &&
+                death < 2021){
+            this.birth = birth;
+            this.death = death;
+        } else {
+            System.out.println("You have attempted an invalid YEAR!");
+        }
     }
     /**
      * Method to test if author's first and last name is equal to "this.
@@ -114,11 +120,15 @@ public class Author {
     public String infoString(){
         if (this.birth != AuthorBookConstants.UNKNOWN_YEAR &&
                  this.death != AuthorBookConstants.UNKNOWN_YEAR){
+            System.out.println(this.lastName.toString() + ", " + this.firstName.toString()
+                    + " (" + this.birth + "-" + this.death + ")");
             return this.lastName.toString() + ", " + this.firstName.toString()
                     + " (" + this.birth + "-" + this.death + ")";
         } else if (this.birth != AuthorBookConstants.UNKNOWN_YEAR){
+            System.out.println(this.lastName.toString() + ", " + this.firstName.toString()
+                    + " (b. " + this.birth + ")");
             return this.lastName.toString() + ", " + this.firstName.toString()
-                    + " (" + this.birth + ")";
+                    + " (b." + this.birth + ")";
         } else {
             return this.lastName.toString() + ", " +
                     this.firstName.toString();

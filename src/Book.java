@@ -25,11 +25,12 @@ public class Book {
     }
 
     public int getPubYear() {
+        Author.validYear(this.pubYear);
         return pubYear;
     }
 
+
     public void setPubYear(int year) {
-        Author.validYear(year);
         this.pubYear = year;
     }
 

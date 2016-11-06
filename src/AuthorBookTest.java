@@ -37,9 +37,6 @@ public class AuthorBookTest {
 
         System.out.println( "\nAttempting simple getters/setters:" );
 
-//        for (int i = 0; i < allTheBooks.length; i++) {
-//            System.out.println(allTheBooks[i].toString());
-//        }
 
         allTheBooks[0].setTitle( "The Complete Stories" );
         if( "The Complete Stories".equals( allTheBooks[0].getTitle() ) ) { tScore++; }
