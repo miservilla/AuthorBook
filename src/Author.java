@@ -97,6 +97,16 @@ public class Author {
                 this.firstName.equals((a.getFirstName()))){
             equals = true;
         }
+        String SC1 = this.firstName;
+        String  SC2 = a.getFirstName();
+        if (SC1.length() == 1 || SC2.length() == 1){
+        Character C1 = SC1.charAt(0);
+        Character C2 = SC2.charAt(0);
+        if (this.lastName.equals(a.getLastName()) &&
+                C1 == C2) {
+            equals = true;
+        }
+        }
         return equals;
     }
 
