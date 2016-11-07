@@ -10,13 +10,26 @@ public class Book {
     private Author author = AuthorBookConstants.UNKNOWN_AUTHOR;
 
 
+    /**
+     * Constructor for Book class.
+     */
     public Book(){
     }
 
+
+    /**
+     * Overloaded constructor for Book class with one parameter (title).
+     * @param title
+     */
     public Book(String title){
         this.title = title;
     }
 
+    /**
+     * O
+     * @param title
+     * @param author
+     */
     public Book(String title, Author author){
         this.title = title;
         this.author = author;
