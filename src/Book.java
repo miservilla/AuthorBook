@@ -26,7 +26,8 @@ public class Book {
     }
 
     /**
-     * O
+     * Overloaded constructor for Book class with two parameters (title and
+     * author).
      * @param title
      * @param author
      */
