@@ -22,6 +22,13 @@ public class Author {
         this.firstName = firstName;
     }
 
+    public boolean validYear(int year){
+        if (year > -2000 && year < 2012){
+            return true;
+        }
+        System.out.println("You have attempted an invalid YEAR!");
+        return false;
+    }
     /**
      * Gets lastName and returns this.lastName instance to calling reference.
      * @return Returns this.lastName.
@@ -60,11 +67,14 @@ public class Author {
      * @param birth
      */
     public void setYears(int birth) {
-        if (birth > -2000 && birth < 2012){
+        if (validYear(birth)){
             this.birth = birth;
-        } else {
-            System.out.println("You have attempted an invalid YEAR!");
         }
+//        if (birth > -2000 && birth < 2021){
+//            this.birth = birth;
+//        } else {
+//            System.out.println("You have attempted an invalid YEAR!");
+//        }
     }
 
     /**
@@ -74,13 +84,17 @@ public class Author {
      * @param death
      */
     public void setYears(int birth, int death) {
-        if (birth < death && birth > -2000 && birth < 2021 && death > -2000 &&
-                death < 2021){
+        if (birth < death && validYear(birth) && validYear(death)){
             this.birth = birth;
             this.death = death;
-        } else {
-            System.out.println("You have attempted an invalid YEAR!");
         }
+//        if (birth < death && birth > -2000 && birth < 2021 && death > -2000 &&
+//                death < 2021){
+//            this.birth = birth;
+//            this.death = death;
+//        } else {
+//            System.out.println("You have attempted an invalid YEAR!");
+//        }
     }
     /**
      * Method to test if author's first and last name is equal to "this.
@@ -94,6 +108,7 @@ public class Author {
                 this.firstName.equals((a.getFirstName()))) {
             equals = true;
         }
+        //Below added to check first initial match for extra credit.
         String SC1 = this.firstName;
         String SC2 = a.getFirstName();
         if (SC1.length() == 1 || SC2.length() == 1) {
@@ -112,7 +127,7 @@ public class Author {
      * @return Returns string literal of instance lastName, firstName
      */
     public String toString(){
-        return this.lastName.toString() + ", " + this.firstName.toString();
+        return lastName + ", " + firstName;
     }
 
     /**
@@ -129,14 +144,14 @@ public class Author {
     public String infoString(){
         if (this.birth != AuthorBookConstants.UNKNOWN_YEAR &&
                  this.death != AuthorBookConstants.UNKNOWN_YEAR){
-            return this.lastName.toString() + ", " + this.firstName.toString()
+            return lastName + ", " + firstName
                     + " (" + this.birth + "-" + this.death + ")";
         } else if (this.birth != AuthorBookConstants.UNKNOWN_YEAR){
-            return this.lastName.toString() + ", " + this.firstName.toString()
+            return lastName + ", " + firstName
                     + " (b. " + this.birth + ")";
         } else {
-            return this.lastName.toString() + ", " +
-                    this.firstName.toString();
+            return lastName + ", " +
+                    firstName;
         }
     }
 }

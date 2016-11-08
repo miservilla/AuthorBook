@@ -51,6 +51,9 @@ public class Book {
      * @param year
      */
     public void setPubYear(int year) {
+//        if (author.validYear(year)){
+//            this.pubYear = year;
+//        }
         if (year > -2000 && year < 2021){
             this.pubYear = year;
         } else {
@@ -162,13 +165,13 @@ public class Book {
     public String toString(){
         if (this.author != AuthorBookConstants.UNKNOWN_AUTHOR &&
                 this.pubYear != AuthorBookConstants.UNKNOWN_YEAR){
-            return this.title.toString() + " (" + this.pubYear + "). " +
-                    this.author.getLastName().toString() + ", " +
-                    this.author.getFirstName().toString() + ".";
+            return title + " (" + this.pubYear + "). " +
+                    author.getLastName() + ", " +
+                    author.getFirstName() + ".";
         } else if (this.author != AuthorBookConstants.UNKNOWN_AUTHOR){
-            return this.title.toString() + ". " +
-                    this.author.getLastName().toString() + ", " +
-                    this.author.getFirstName().toString() + ".";
-        } else return this.title.toString() + ".";
+            return title + ". " +
+                    author.getLastName() + ", " +
+                    author.getFirstName() + ".";
+        } else return title + ".";
     }
 }
