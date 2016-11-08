@@ -22,20 +22,36 @@ public class Author {
         this.firstName = firstName;
     }
 
+    /**
+     * Gets lastName and returns this.lastName instance to calling reference.
+     * @return Returns this.lastName.
+     */
     public String getLastName(){
         return this.lastName;
     }
 
+    /**
+     * Gets firstName and returns this.firstName instance to calling reference.
+     * @return Returns this.firstName.
+     */
     public String getFirstName(){
         return this.firstName;
     }
 
+    /**
+     * Gets birth year and returns this.birth instance to calling reference.
+     * @return Returns this.birth.
+     */
     public int getBirth() {
-        return birth;
+        return this.birth;
     }
 
+    /**
+     * Gets death year and returns this.death instance to calling reference.
+     * @return Returns this.death.
+     */
     public int getDeath(){
-        return death;
+        return this.death;
     }
 
     /**
@@ -93,7 +109,7 @@ public class Author {
 
     /**
      * Method to return string literal representation of chosen object.
-     * @return string literal of instance lastName, firstName
+     * @return Returns string literal of instance lastName, firstName
      */
     public String toString(){
         return this.lastName.toString() + ", " + this.firstName.toString();
@@ -107,7 +123,7 @@ public class Author {
      * If both the years of birth and death have been set, it should return:
      * Heaney, Seamus (1939-2013)
      *
-     * @return information strings of this.author in format depending on
+     * @return Returns information strings of this.author in format depending on
      * available parameters.
      */
     public String infoString(){

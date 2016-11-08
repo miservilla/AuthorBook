@@ -41,6 +41,11 @@ public class Book {
     }
 
 
+    /**
+     * Setter for publication year, condition is if valid year, sets year if
+     * valid, leaves unchanged if not valid.
+     * @param year
+     */
     public void setPubYear(int year) {
         if (year > -2000 && year < 2021){
             this.pubYear = year;
@@ -53,6 +58,10 @@ public class Book {
         return title;
     }
 
+    /**
+     * Sets book title, condition is requires text, leaves unchanged if no text.
+     * @param title
+     */
     public void setTitle(String title) {
         if (title != ""){
             this.title = title;
@@ -65,6 +74,11 @@ public class Book {
         return isbn;
     }
 
+    /**
+     * Sets ISBN of book, condition is ISBN has to be either 10 or 13 character
+     * length.
+     * @param isbn
+     */
     public void setISBN(String isbn) {
         if (isbn.length()== 10 || isbn.length()== 13){
             this.isbn = isbn;
