@@ -36,8 +36,12 @@ public class Book {
         this.author = author;
     }
 
+    /**
+     * Gets publication year for book.
+     * @return Returns this.pubYear.
+     */
     public int getPubYear() {
-        return pubYear;
+        return this.pubYear;
     }
 
 
@@ -54,8 +58,12 @@ public class Book {
         }
     }
 
+    /**
+     * Gets instance of book title.
+     * @return Returns this.title.
+     */
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     /**
@@ -70,8 +78,12 @@ public class Book {
         }
     }
 
+    /**
+     * Gets instance of ISBN number for book.
+     * @return Returns this.isbn.
+     */
     public String getISBN() {
-        return isbn;
+        return this.isbn;
     }
 
     /**
@@ -87,10 +99,18 @@ public class Book {
         }
     }
 
+    /**
+     * Gets instance of author for book.
+     * @return Returns this.author.
+     */
     public Author getAuthor() {
-        return author;
+        return this.author;
     }
 
+    /**
+     * Sets author for this.author instance.
+     * @param author
+     */
     public void setAuthor(Author author) {
         this.author = author;
     }
@@ -110,7 +130,6 @@ public class Book {
             same = true;
         }
         return same;
-//        return this.author.isSame(book.getAuthor());
     }
 
     /**
@@ -129,14 +148,16 @@ public class Book {
 
     /**
      * Should return (not print!) a String representation of this Book.
-     If only a title has been set, return a string of the form:
-     The Arcades Project.
-     If a title and author are set:
-     The Arcades Project. Benjamin, Walter.
-     If a title and author and year have been set:
-     The Arcades Project (2002). Benjamin, Walter.
-     Note the punctuation in the examples above, it must be exact to pass the tests
-     * @return
+     * If only a title has been set, return a string of the form:
+     * The Arcades Project.
+     * If a title and author are set:
+     * The Arcades Project. Benjamin, Walter.
+     * If a title and author and year have been set:
+     * The Arcades Project (2002). Benjamin, Walter.
+     * Note the punctuation in the examples above, it must be exact to pass the
+     * tests
+     * @return Returns information strings of instance of book in format
+     * depending on available parameters.
      */
     public String toString(){
         if (this.author != AuthorBookConstants.UNKNOWN_AUTHOR &&
@@ -150,10 +171,4 @@ public class Book {
                     this.author.getFirstName().toString() + ".";
         } else return this.title.toString() + ".";
     }
-//
-//    public static void main(String[] args){
-//        System.out.println();
-//
-//    }
-
 }
