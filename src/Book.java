@@ -51,14 +51,14 @@ public class Book {
      * @param year
      */
     public void setPubYear(int year) {
-//        if (author.validYear(year)){
-//            this.pubYear = year;
-//        }
-        if (year > -2000 && year < 2021){
+        if (Author.validYear(year)){
             this.pubYear = year;
-        } else {
-            System.out.println("You have attempted an invalid YEAR!");
         }
+//        if (year > -2000 && year < 2021){
+//            this.pubYear = year;
+//        } else {
+//            System.out.println("You have attempted an invalid YEAR!");
+//        }
     }
 
     /**

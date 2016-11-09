@@ -22,8 +22,13 @@ public class Author {
         this.firstName = firstName;
     }
 
-    public boolean validYear(int year){
-        if (year > -2000 && year < 2012){
+    /**
+     * Method to check validity of passed year.
+     * @param year
+     * @return Returns true if valid, false if invalid.
+     */
+    public static boolean validYear(int year){
+        if (year > -2000 && year < 2021){
             return true;
         }
         System.out.println("You have attempted an invalid YEAR!");
@@ -70,11 +75,6 @@ public class Author {
         if (validYear(birth)){
             this.birth = birth;
         }
-//        if (birth > -2000 && birth < 2021){
-//            this.birth = birth;
-//        } else {
-//            System.out.println("You have attempted an invalid YEAR!");
-//        }
     }
 
     /**
@@ -88,13 +88,6 @@ public class Author {
             this.birth = birth;
             this.death = death;
         }
-//        if (birth < death && birth > -2000 && birth < 2021 && death > -2000 &&
-//                death < 2021){
-//            this.birth = birth;
-//            this.death = death;
-//        } else {
-//            System.out.println("You have attempted an invalid YEAR!");
-//        }
     }
     /**
      * Method to test if author's first and last name is equal to "this.
