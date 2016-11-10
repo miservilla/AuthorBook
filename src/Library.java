@@ -32,7 +32,12 @@ public class Library {
      * @return Total number of copies in the library.
      */
     public int totalCopies() {
-        return -1;
+        int tC = 0;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] == null);
+            return i;
+        }
+        return tC;
     }
 
     /**
@@ -68,6 +73,7 @@ public class Library {
      * @param b Book to add.
      */
     public void addBook( Book b ) {
+
 
     }
 
@@ -124,6 +130,7 @@ public class Library {
      * given string within their titles, without regard for case, with
      * a newline after each.  If no books are found containing the
      * string, returns string that says so.
+     * Use to.lower case and use contains method in String class.
      * @param s The string to look for in the titles.
      * @return String listing books that contain given string in titles.
      */
