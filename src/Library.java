@@ -51,6 +51,7 @@ public class Library {
         int tC = 0;
         for (int i = 0; i < books.length; i++) {
             if (books[i] == null);
+            //TODO:Check need to change return index + 1.
             return i;
         }
         return tC;
