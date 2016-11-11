@@ -3,6 +3,7 @@
  * @version date 2016-11-08
  */
 public class Library {
+    //Todo Create helper method to find last empty index in book array.
 
     /** Books in the library. */
     private Book[] books;
@@ -24,6 +25,21 @@ public class Library {
         copies = new int[librarySize];
         checkedOut = new int[librarySize];
         numBooks = 0;
+    }
+
+    /**
+     * Helper method to return next empty index in book array.
+     * @param books
+     * @return Returns index location of next empty location.
+     */
+    public static int emptyIndex(Book[] books){
+        int i;
+        for (i = 0; i < books.length; i++) {
+            if (books[i] == null){
+                return i;
+            }
+        }
+        return i;
     }
 
     /**
@@ -73,8 +89,13 @@ public class Library {
      * @param b Book to add.
      */
     public void addBook( Book b ) {
-
-
+        int eI = emptyIndex(books);
+        books[eI] = b;
+        /*
+        TODO: will need to check if book already present, call Book.equals,
+        and if true, then add to copies, if false add to array.
+        */
+        System.out.println(books[eI].toString());
     }
 
     /**
