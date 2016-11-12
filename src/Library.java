@@ -3,7 +3,6 @@
  * @version date 2016-11-08
  */
 public class Library {
-    //Todo Create helper method to find last empty index in book array.
 
     /** Books in the library. */
     private Book[] books;
@@ -32,7 +31,7 @@ public class Library {
      * @param books
      * @return Returns index location of next empty location.
      */
-    public static int emptyIndex(Book[] books){
+    public static int nextEmptyIndex(Book[] books){
         int i;
         for (i = 0; i < books.length; i++) {
             if (books[i] == null){
@@ -48,13 +47,11 @@ public class Library {
      * @return Total number of copies in the library.
      */
     public int totalCopies() {
-        int tC = 0;
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] == null);
-            //TODO:Check need to change return index + 1.
-            return i;
+        int totalCopies = 0;
+        for (int i = 0; i < copies.length; i++) {
+            totalCopies += copies[i];
         }
-        return tC;
+        return totalCopies;
     }
 
     /**
@@ -62,7 +59,11 @@ public class Library {
      * @return Total number of copies checked out.
      */
     public int totalCheckedOut() {
-        return -1;
+        int totalCheckedOut = 0;
+        for (int i = 0; i < checkedOut.length; i++) {
+            totalCheckedOut += checkedOut[i];
+        }
+        return totalCheckedOut;
     }
 
     /**
@@ -70,7 +71,13 @@ public class Library {
      * @return Status string.
      */
     public String statusString() {
-        return "";
+        //TODO: Delete following print statement for final submission!!!!!!!!!
+        System.out.print("Total unique books: " + nextEmptyIndex(books) + "\n" +
+                "Total number of copies: " + totalCopies() + "\n" +
+                "Total checked out: " + totalCheckedOut() + "\n");
+        return "Total unique books: " + nextEmptyIndex(books) + "\n" +
+                "Total number of copies: " + totalCopies() + "\n" +
+                "Total checked out: " + totalCheckedOut();
     }
 
     /**
@@ -79,7 +86,9 @@ public class Library {
      * @param newBooks Books to add.
      */
     public void addBooks( Book[] newBooks ) {
-
+        for (int i = 0; i < newBooks.length; i++) {
+            addBook(newBooks[i]);
+        }
     }
 
     /**
@@ -90,13 +99,18 @@ public class Library {
      * @param b Book to add.
      */
     public void addBook( Book b ) {
-        int eI = emptyIndex(books);
-        books[eI] = b;
-        /*
-        TODO: will need to check if book already present, call Book.equals,
-        and if true, then add to copies, if false add to array.
-        */
-        System.out.println(books[eI].toString());
+        int emptyIndex = nextEmptyIndex(books);
+        int i;
+        for (i = 0; i < emptyIndex; i++) {
+            if (this.books[i].equals(b)) {
+                copies[i]++;
+                break;
+            }
+        }
+        if (i == emptyIndex) {
+            books[emptyIndex] = b;
+            copies[emptyIndex]++;
+        }
     }
 
     /**
