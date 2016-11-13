@@ -157,8 +157,17 @@ public class Library {
      * @return String representation of library.
      */
     public String toString() {
-        return "";
-    }
+        String s = "";
+        int emptyIndex = nextEmptyIndex(books);
+        for (int i = 0; i < emptyIndex; i++) {
+            int currentCopies = this.copies[i] - this.checkedOut[i];
+            s += i + ". " + String.valueOf(this.books[i]) + " : "
+                    + currentCopies + "/" + copies[i] + "\n";
+        }
+        s += "\n";
+        s += statusString();
+//        System.out.print(s);
+        return s;    }
 
     /**
      * Get number of unique books that exist for a given author.
