@@ -122,9 +122,9 @@ public class Library {
         int emptyIndex = nextEmptyIndex(books);
         int i;
         for (i = 0; i < emptyIndex; i++) {
-            if (this.books[i].equals(b) && this.copies[i] > 0) {
+            if (this.books[i].equals(b) &&
+                    (this.copies[i] - checkedOut[i]) > 0) {
                 checkedOut[i]++;
-                copies[i]--;
                 return "Checked out!";
             } else if (this.books[i].equals(b)){
                 return "All out of copies.";
