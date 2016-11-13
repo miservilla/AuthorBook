@@ -228,6 +228,8 @@ public class Library {
 
     /**
      * Deletes book entirely from the library.
+     * Used https://www.cs.umd.edu/~clin/MoreJava/Container/arr-remove.html to
+     * help.
      * @param b Book to remove.
      * @return String denoting success or failure.
      */
