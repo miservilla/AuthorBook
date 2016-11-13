@@ -216,12 +216,12 @@ public class Library {
         String bookListThatContains = "";
         int emptyIndex = nextEmptyIndex(books);
         for (int i = 0; i < emptyIndex; i++) {
-            if (books[i].getTitle().toLowerCase().equals(s.toLowerCase())){
+            if (books[i].getTitle().toLowerCase().contains(s.toLowerCase())){
                 bookListThatContains += String.valueOf(books[i]) + "\n";
             }
         }
         if (bookListThatContains.equals("")){
-
+            bookListThatContains = "No books with \"" + s + "\" in the title.";
         }
         return bookListThatContains;
     }
