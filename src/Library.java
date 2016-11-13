@@ -139,7 +139,17 @@ public class Library {
      * @return String denoting success or failure.
      */
     public String checkInBook ( Book b ) {
-        return "";
+        int emptyIndex = nextEmptyIndex(books);
+        int i;
+        for (i = 0; i < emptyIndex; i++) {
+            if (this.books[i].equals(b) && checkedOut[i] > 0) {
+                checkedOut[i]--;
+                return "Checked in!";
+            } else if (this.books[i].equals(b) && checkedOut[i] == 0) {
+                return "All of our copies are already checked in.";
+            }
+        }
+            return "Book not found.";
     }
 
     /**
