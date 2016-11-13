@@ -237,9 +237,12 @@ public class Library {
             if (books[i].equals(b)) {
                 int remIndex = i;
                 int numElts = books.length - (remIndex + 1);
-                System.arraycopy(books, remIndex+1, books, remIndex, numElts);
-                System.arraycopy(copies, remIndex+1, copies, remIndex, numElts);
-                System.arraycopy(checkedOut, remIndex+1, checkedOut, remIndex, numElts);
+                System.arraycopy(books, remIndex + 1, books, remIndex,
+                        numElts);
+                System.arraycopy(copies, remIndex + 1, copies, remIndex,
+                        numElts);
+                System.arraycopy(checkedOut, remIndex + 1, checkedOut, remIndex,
+                        numElts);
                 return "Book removed.";
             }
         }
