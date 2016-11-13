@@ -197,6 +197,9 @@ public class Library {
                 bookListByAuthor += String.valueOf(books[i]) + "\n";
             }
         }
+        if (bookListByAuthor.equals("")){
+            bookListByAuthor = "No books by " + String.valueOf(a) + ".";
+        }
         return bookListByAuthor;
     }
 
@@ -210,7 +213,17 @@ public class Library {
      * @return String listing books that contain given string in titles.
      */
     public String listBooksByTitle( String s ) {
-        return "";
+        String bookListThatContains = "";
+        int emptyIndex = nextEmptyIndex(books);
+        for (int i = 0; i < emptyIndex; i++) {
+            if (books[i].getTitle().toLowerCase().equals(s.toLowerCase())){
+                bookListThatContains += String.valueOf(books[i]) + "\n";
+            }
+        }
+        if (bookListThatContains.equals("")){
+
+        }
+        return bookListThatContains;
     }
 
     /**
