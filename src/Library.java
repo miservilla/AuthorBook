@@ -198,7 +198,7 @@ public class Library {
             }
         }
         if (bookListByAuthor.equals("")){
-            bookListByAuthor = "No books by " + String.valueOf(a) + ".";
+            bookListByAuthor = "No books by " + a + ".";
         }
         return bookListByAuthor;
     }
