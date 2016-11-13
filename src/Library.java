@@ -119,7 +119,18 @@ public class Library {
      * @return String denoting success or failure.
      */
     public String checkOutBook ( Book b ) {
-        return "";
+        int emptyIndex = nextEmptyIndex(books);
+        int i;
+        for (i = 0; i < emptyIndex; i++) {
+            if (this.books[i].equals(b) && this.copies[i] > 0) {
+                checkedOut[i]++;
+                copies[i]--;
+                return "Checked out!";
+            } else if (this.books[i].equals(b)){
+                return "All out of copies.";
+            }
+        }
+        return "Book not found.";
     }
 
     /**
