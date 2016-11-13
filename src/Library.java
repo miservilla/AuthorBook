@@ -71,9 +71,6 @@ public class Library {
      * @return Status string.
      */
     public String statusString() {
-//        System.out.print("Total unique books: " + nextEmptyIndex(books) + "\n" +
-//                "Total number of copies: " + totalCopies() + "\n" +
-//                "Total checked out: " + totalCheckedOut() + "\n");
         return "Total unique books: " + nextEmptyIndex(books) + "\n" +
                 "Total number of copies: " + totalCopies() + "\n" +
                 "Total checked out: " + totalCheckedOut();
@@ -165,7 +162,6 @@ public class Library {
         }
         s += "\n";
         s += statusString();
-//        System.out.print(s);
         return s;    }
 
     /**
