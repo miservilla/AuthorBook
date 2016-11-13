@@ -71,6 +71,9 @@ public class Library {
      * @return Status string.
      */
     public String statusString() {
+//        System.out.print("Total unique books: " + nextEmptyIndex(books) + "\n" +
+//                "Total number of copies: " + totalCopies() + "\n" +
+//                "Total checked out: " + totalCheckedOut() + "\n");
         return "Total unique books: " + nextEmptyIndex(books) + "\n" +
                 "Total number of copies: " + totalCopies() + "\n" +
                 "Total checked out: " + totalCheckedOut();
@@ -162,6 +165,7 @@ public class Library {
         }
         s += "\n";
         s += statusString();
+//        System.out.print(s);
         return s;    }
 
     /**
@@ -232,7 +236,17 @@ public class Library {
      * @return String denoting success or failure.
      */
     public String deleteBook( Book b ) {
-        return "";
+        int emptyIndex = nextEmptyIndex(books);
+        for (int i = 0; i < emptyIndex; i++) {
+            if (books[i].equals(b)) {
+                int remIndex = i;
+                int numElts = books.length - (remIndex + 1);
+                System.arraycopy(books, remIndex+1, books, remIndex, numElts);
+                System.arraycopy(copies, remIndex+1, copies, remIndex, numElts);
+                System.arraycopy(checkedOut, remIndex+1, checkedOut, remIndex, numElts);
+                return "Book removed.";
+            }
+        }
+        return "Book not found.";
     }
-
 }
