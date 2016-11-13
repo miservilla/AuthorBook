@@ -71,10 +71,6 @@ public class Library {
      * @return Status string.
      */
     public String statusString() {
-        //TODO: Delete following print statement for final submission!!!!!!!!!
-        System.out.print("Total unique books: " + nextEmptyIndex(books) + "\n" +
-                "Total number of copies: " + totalCopies() + "\n" +
-                "Total checked out: " + totalCheckedOut() + "\n");
         return "Total unique books: " + nextEmptyIndex(books) + "\n" +
                 "Total number of copies: " + totalCopies() + "\n" +
                 "Total checked out: " + totalCheckedOut();
@@ -102,7 +98,7 @@ public class Library {
         int emptyIndex = nextEmptyIndex(books);
         int i;
         for (i = 0; i < emptyIndex; i++) {
-            if (this.books[i].equals(b)) {
+            if (books[i].equals(b)) {
                 copies[i]++;
                 break;
             }
@@ -122,11 +118,11 @@ public class Library {
         int emptyIndex = nextEmptyIndex(books);
         int i;
         for (i = 0; i < emptyIndex; i++) {
-            if (this.books[i].equals(b) &&
-                    (this.copies[i] - checkedOut[i]) > 0) {
+            if (books[i].equals(b) &&
+                    (copies[i] - checkedOut[i]) > 0) {
                 checkedOut[i]++;
                 return "Checked out!";
-            } else if (this.books[i].equals(b)){
+            } else if (books[i].equals(b)){
                 return "All out of copies.";
             }
         }
@@ -142,10 +138,10 @@ public class Library {
         int emptyIndex = nextEmptyIndex(books);
         int i;
         for (i = 0; i < emptyIndex; i++) {
-            if (this.books[i].equals(b) && checkedOut[i] > 0) {
+            if (books[i].equals(b) && checkedOut[i] > 0) {
                 checkedOut[i]--;
                 return "Checked in!";
-            } else if (this.books[i].equals(b) && checkedOut[i] == 0) {
+            } else if (books[i].equals(b) && checkedOut[i] == 0) {
                 return "All of our copies are already checked in.";
             }
         }
@@ -160,13 +156,12 @@ public class Library {
         String s = "";
         int emptyIndex = nextEmptyIndex(books);
         for (int i = 0; i < emptyIndex; i++) {
-            int currentCopies = this.copies[i] - this.checkedOut[i];
-            s += i + ". " + String.valueOf(this.books[i]) + " : "
+            int currentCopies = copies[i] - checkedOut[i];
+            s += i + ". " + String.valueOf(books[i]) + " : "
                     + currentCopies + "/" + copies[i] + "\n";
         }
         s += "\n";
         s += statusString();
-//        System.out.print(s);
         return s;    }
 
     /**
@@ -175,7 +170,14 @@ public class Library {
      * @return Number of books by the author.
      */
     public int numBooksByAuthor( Author a ) {
-        return -1;
+        int authorBookCount = 0;
+        int emptyIndex = nextEmptyIndex(books);
+        for (int i = 0; i < emptyIndex; i++) {
+            if (books[i].getAuthor().isSame(a)){
+                authorBookCount++;
+            }
+        }
+        return authorBookCount;
     }
 
     /**
@@ -188,7 +190,14 @@ public class Library {
      * @return String listing books by the author.
      */
     public String listBooksByAuthor( Author a ) {
-        return "";
+        String bookListByAuthor = "";
+        int emptyIndex = nextEmptyIndex(books);
+        for (int i = 0; i < emptyIndex; i++) {
+            if (books[i].getAuthor().isSame(a)){
+                bookListByAuthor += String.valueOf(books[i]) + "\n";
+            }
+        }
+        return bookListByAuthor;
     }
 
     /**
