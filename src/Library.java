@@ -103,9 +103,13 @@ public class Library {
                 break;
             }
         }
-        if (i == emptyIndex) {
-            books[emptyIndex] = b;
-            copies[emptyIndex]++;
+        if(emptyIndex < books.length-1){
+            if (i == emptyIndex) {
+                books[emptyIndex] = b;
+                copies[emptyIndex]++;
+            }
+        } else {
+            System.out.println("Unable to add a book, end of array!");
         }
     }
 
