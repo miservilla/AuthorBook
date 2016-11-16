@@ -26,20 +26,6 @@ public class Library {
         numBooks = 0;
     }
 
-    /**
-     * Helper method to return next empty index in book array.
-     * @param books
-     * @return Returns index location of next empty location.
-     */
-    public static int nextEmptyIndex(Book[] books){
-        int i;
-        for (i = 0; i < books.length; i++) {
-            if (books[i] == null){
-                return i;
-            }
-        }
-        return i;
-    }
 
     /**
      * Get the number of total copies of all books that exist in the
@@ -95,7 +81,6 @@ public class Library {
      * @param b Book to add.
      */
     public void addBook( Book b ) {
-        int emptyIndex = nextEmptyIndex(books);
         int i;
         for (i = 0; i < numBooks; i++) {
             if (books[i].equals(b)) {
@@ -120,7 +105,6 @@ public class Library {
      * @return String denoting success or failure.
      */
     public String checkOutBook ( Book b ) {
-        int emptyIndex = nextEmptyIndex(books);
         int i;
         for (i = 0; i < numBooks; i++) {
             if (books[i].equals(b) &&
@@ -140,7 +124,6 @@ public class Library {
      * @return String denoting success or failure.
      */
     public String checkInBook ( Book b ) {
-        int emptyIndex = nextEmptyIndex(books);
         int i;
         for (i = 0; i < numBooks; i++) {
             if (books[i].equals(b) && checkedOut[i] > 0) {
@@ -159,7 +142,6 @@ public class Library {
      */
     public String toString() {
         String s = "";
-        int emptyIndex = nextEmptyIndex(books);
         for (int i = 0; i < numBooks; i++) {
             int currentCopies = copies[i] - checkedOut[i];
             s += i + ". " + String.valueOf(books[i]) + " : "
@@ -176,7 +158,6 @@ public class Library {
      */
     public int numBooksByAuthor( Author a ) {
         int authorBookCount = 0;
-        int emptyIndex = nextEmptyIndex(books);
         for (int i = 0; i < numBooks; i++) {
             if (books[i].getAuthor().isSame(a)){
                 authorBookCount++;
@@ -196,7 +177,6 @@ public class Library {
      */
     public String listBooksByAuthor( Author a ) {
         String bookListByAuthor = "";
-        int emptyIndex = nextEmptyIndex(books);
         for (int i = 0; i < numBooks; i++) {
             if (books[i].getAuthor().isSame(a)){
                 bookListByAuthor += String.valueOf(books[i]) + "\n";
@@ -219,7 +199,6 @@ public class Library {
      */
     public String listBooksByTitle( String s ) {
         String bookListThatContains = "";
-        int emptyIndex = nextEmptyIndex(books);
         for (int i = 0; i < numBooks; i++) {
             if (books[i].getTitle().toLowerCase().contains(s.toLowerCase())){
                 bookListThatContains += String.valueOf(books[i]) + "\n";
@@ -239,7 +218,6 @@ public class Library {
      * @return String denoting success or failure.
      */
     public String deleteBook( Book b ) {
-        int emptyIndex = nextEmptyIndex(books);
         for (int i = 0; i < numBooks - 1; i++) {
             if (books[i].equals(b)) {
                 int remIndex = i;
@@ -250,6 +228,7 @@ public class Library {
                         numElts);
                 System.arraycopy(checkedOut, remIndex + 1, checkedOut, remIndex,
                         numElts);
+                numBooks--;
                 return "Book removed.";
             }
         }
