@@ -71,7 +71,7 @@ public class Library {
      * @return Status string.
      */
     public String statusString() {
-        return "Total unique books: " + nextEmptyIndex(books) + "\n" +
+        return "Total unique books: " + numBooks + "\n" +
                 "Total number of copies: " + totalCopies() + "\n" +
                 "Total checked out: " + totalCheckedOut();
     }
@@ -97,16 +97,17 @@ public class Library {
     public void addBook( Book b ) {
         int emptyIndex = nextEmptyIndex(books);
         int i;
-        for (i = 0; i < emptyIndex; i++) {
+        for (i = 0; i < numBooks; i++) {
             if (books[i].equals(b)) {
                 copies[i]++;
                 break;
             }
         }
-        if(emptyIndex < books.length-1){
-            if (i == emptyIndex) {
-                books[emptyIndex] = b;
-                copies[emptyIndex]++;
+        if(numBooks < books.length-1){
+            if (i == numBooks) {
+                books[numBooks] = b;
+                numBooks++;
+                copies[i]++;
             }
         } else {
             System.out.println("Unable to add a book, end of array!");
@@ -121,7 +122,7 @@ public class Library {
     public String checkOutBook ( Book b ) {
         int emptyIndex = nextEmptyIndex(books);
         int i;
-        for (i = 0; i < emptyIndex; i++) {
+        for (i = 0; i < numBooks; i++) {
             if (books[i].equals(b) &&
                     (copies[i] - checkedOut[i]) > 0) {
                 checkedOut[i]++;
@@ -141,7 +142,7 @@ public class Library {
     public String checkInBook ( Book b ) {
         int emptyIndex = nextEmptyIndex(books);
         int i;
-        for (i = 0; i < emptyIndex; i++) {
+        for (i = 0; i < numBooks; i++) {
             if (books[i].equals(b) && checkedOut[i] > 0) {
                 checkedOut[i]--;
                 return "Checked in!";
@@ -159,7 +160,7 @@ public class Library {
     public String toString() {
         String s = "";
         int emptyIndex = nextEmptyIndex(books);
-        for (int i = 0; i < emptyIndex; i++) {
+        for (int i = 0; i < numBooks; i++) {
             int currentCopies = copies[i] - checkedOut[i];
             s += i + ". " + String.valueOf(books[i]) + " : "
                     + currentCopies + "/" + copies[i] + "\n";
@@ -176,7 +177,7 @@ public class Library {
     public int numBooksByAuthor( Author a ) {
         int authorBookCount = 0;
         int emptyIndex = nextEmptyIndex(books);
-        for (int i = 0; i < emptyIndex; i++) {
+        for (int i = 0; i < numBooks; i++) {
             if (books[i].getAuthor().isSame(a)){
                 authorBookCount++;
             }
@@ -196,7 +197,7 @@ public class Library {
     public String listBooksByAuthor( Author a ) {
         String bookListByAuthor = "";
         int emptyIndex = nextEmptyIndex(books);
-        for (int i = 0; i < emptyIndex; i++) {
+        for (int i = 0; i < numBooks; i++) {
             if (books[i].getAuthor().isSame(a)){
                 bookListByAuthor += String.valueOf(books[i]) + "\n";
             }
@@ -219,7 +220,7 @@ public class Library {
     public String listBooksByTitle( String s ) {
         String bookListThatContains = "";
         int emptyIndex = nextEmptyIndex(books);
-        for (int i = 0; i < emptyIndex; i++) {
+        for (int i = 0; i < numBooks; i++) {
             if (books[i].getTitle().toLowerCase().contains(s.toLowerCase())){
                 bookListThatContains += String.valueOf(books[i]) + "\n";
             }
@@ -239,7 +240,7 @@ public class Library {
      */
     public String deleteBook( Book b ) {
         int emptyIndex = nextEmptyIndex(books);
-        for (int i = 0; i < emptyIndex; i++) {
+        for (int i = 0; i < numBooks - 1; i++) {
             if (books[i].equals(b)) {
                 int remIndex = i;
                 int numElts = books.length - (remIndex + 1);
